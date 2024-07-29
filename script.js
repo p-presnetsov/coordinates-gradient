@@ -15,7 +15,7 @@ document.getElementById('copyButton').addEventListener('click', function() {
   document.getElementById('gradient').addEventListener('click', async function (event) {
       const x = event.clientX - this.getBoundingClientRect().left;
       const y = event.clientY - this.getBoundingClientRect().top;
-   
+    
       const { color1, color2 } = getColorFromCoordinates(x, y);
       lastColor1 = color1;
       lastColor2 = color2;
