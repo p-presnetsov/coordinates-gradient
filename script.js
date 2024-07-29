@@ -16,16 +16,10 @@ document.getElementById('copyButton').addEventListener('click', function() {
       const x = event.clientX - this.getBoundingClientRect().left;
       const y = event.clientY - this.getBoundingClientRect().top;
    
-  //    const firstColor = document.getElementById('color1');
-  //    const secondColor = document.getElementById('color2');
-
       const { color1, color2 } = getColorFromCoordinates(x, y);
       lastColor1 = color1;
       lastColor2 = color2;
       
-      
-
-      // Start the gradient animation
       await startLinearGradient();
   });
 
@@ -56,10 +50,10 @@ document.getElementById('copyButton').addEventListener('click', function() {
       return new Promise((resolve) => {
           animationInterval = setInterval(() => {
               document.getElementById('gradient').style.background = `linear-gradient(${angle}deg, ${lastColor1}, ${lastColor2})`;
-              angle = (angle + 1) % 360; // Increment angle and keep it within 0-359
+              angle = (angle + 1) % 360; 
               const input = document.getElementById('textToCopy');
               input.value = `background: linear-gradient(${angle}deg, ${lastColor1}, ${lastColor2})`
-          }, 200); // Update gradient every 20 milliseconds
+          }, 200); 
       });
   }
 });
